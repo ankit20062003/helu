@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #FFF5F5;
+  --color-foreground: #4A2C2A;
+  --color-pink-50: #FFF0F0;
+  --color-pink-100: #FCE4EC;
+  --color-pink-200: #F8BBD0;
+  --color-pink-300: #F48FB1;
+  --color-pink-400: #EC407A;
+  --color-pink-500: #E91E63;
+  --color-pink-600: #D81B60;
+  --color-warm: #FF8A65;
+  --color-warm-light: #FFCCBC;
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-playfair);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--color-pink-500);
+  font-weight: 300;
+}
+
+/* Floating hearts */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: absolute;
+  animation: float-up linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Bounce arrow */
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+.bounce-arrow {
+  animation: bounce-down 2s ease-in-out infinite;
+}
+
+/* Glow pulse for Yes button */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.4), 0 0 40px rgba(233, 30, 99, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.6), 0 0 60px rgba(233, 30, 99, 0.3);
+  }
+}
+
+.glow-button {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Timeline line gradient */
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-pink-300) 10%,
+    var(--color-pink-400) 50%,
+    var(--color-pink-300) 90%,
+    transparent
+  );
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-pink-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pink-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pink-400);
+}
